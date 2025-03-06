@@ -1,0 +1,119 @@
+@use "sass:color";
+
+$light-blue: #64b5f6;   
+$medium-blue: #1976d2;  
+$deep-blue: #0a192f;    
+$neon-green: #64ffda;   
+$button-back: #eeebeb;  
+$font-color: #4e5968;
+
+
+
+
+.sidebar {
+    border-right: 1px solid $button-back;
+   
+    width: 150px;
+    height: 100vh;
+    background: white;
+    color: $font-color;
+    padding: 20px;
+    padding-right: 0;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1002;
+    transition: width 0.3s ease;
+
+    &.closed {
+        width: 60px;
+
+       
+            
+            
+
+            ul li a {
+                margin-right: 10px;
+                justify-content:center;
+                padding: 15px 5px;
+                margin-bottom: 20px;
+
+
+                
+                &.active {
+                    margin-right: 0;
+                    border-radius: 5px;
+                    border-left: 4px solid #007BFF;
+                    background-color: $button-back;
+
+                }
+            }
+
+        
+    }
+
+    .logo {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        color: $medium-blue;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+
+
+        li {
+            margin: 10px 0;
+            
+
+            a {             
+                margin-right: 30px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                padding: 12px;
+                border-radius: 5px;
+                color: $font-color;
+                text-decoration: none;
+                font-size: 16px;
+                font-weight: 500;
+                transition: background 0.3s ease, border-left 0.3s ease;
+
+                &:hover {
+                    background-color: $button-back;
+                    
+                }
+
+            }
+
+            &.active {
+                margin-right: 0;
+                border-radius: 5px;
+                border-left: 4px solid #007BFF;
+                background-color: $button-back;
+                
+            }
+        }
+    }
+
+    .toggleSidebarBtn {
+        background: transparent;
+        border: none;
+        color: $light-blue;
+        font-size: 20px;
+        cursor: pointer;
+        position: absolute;
+        top: 20px;
+        right: -5px;
+        padding: 5px;
+        border-radius: 50%;
+        transition: background 0.3s;
+
+        &:hover {
+            color: $medium-blue;
+        }
+    }
+}
+

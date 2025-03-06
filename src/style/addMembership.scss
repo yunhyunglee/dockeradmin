@@ -1,0 +1,132 @@
+@use "sass:color";
+
+$primary-color: #1976d2;
+$secondary-color: #64b5f6;
+$danger-color: #dc3545;
+$background-color: #f5f5f5;
+$font-color: #333;
+$border-radius: 10px;
+
+.AddMembershipPage {
+    width: 100%;
+    max-width: 600px;  // 최대 너비 설정
+    margin: 40px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: $border-radius;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.AddMembershipPage h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.memberShipField {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+
+    label {
+        font-size: 15px;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: $font-color;
+    }
+
+    input,
+    select {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+
+    select {
+        cursor: pointer;
+    }
+}
+
+/* 가격 입력 필드 */
+.memberShipPriceForm {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 10px;
+
+    .memberShipPriceField {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            flex: 1;
+        }
+    }
+}
+
+/* 버튼 스타일 */
+.btns {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+
+    button {
+        flex: 1;
+        padding: 10px;
+        font-size: 16px;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+
+        &:first-child {
+            background: $primary-color;
+            color: white;
+            margin-right: 10px;
+        }
+
+        &:last-child {
+            background: $danger-color;
+            color: white;
+        }
+    }
+}
+
+/* 반응형 처리 */
+@media (max-width: 768px) {
+    .AddMembershipPage {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .memberShipPriceForm {
+        grid-template-columns: 1;
+        margin: 10px;
+    }
+
+    .btns {
+        flex-direction: column;
+
+        button {
+            margin-bottom: 10px;
+        }
+    }
+}
+
+/* 추가적인 반응형 처리 */
+@media (max-width: 480px) {
+    .AddMembershipPage {
+        padding: 10px;
+    }
+
+    .btns button {
+        font-size: 14px;
+        padding: 8px;
+    }
+}

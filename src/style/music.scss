@@ -1,0 +1,166 @@
+@use "sass:color";
+
+$light-blue: #64b5f6;   
+$medium-blue: #1976d2;  
+$deep-blue: #0a192f;    
+$neon-green: #64ffda;   
+$button-back: #eeebeb;  
+$font-color: #4e5968;
+
+
+.musicPage {
+
+    width: 700px;
+    position: relative;
+    height: 600px;
+    scrollbar-width:none;
+    overflow: scroll,;
+
+
+
+    .musicContent {
+        flex-grow: 1;
+        padding-top: 0;
+        padding-left: 20px;
+        padding-right: 20px;
+        text-align: center;
+    }
+    
+
+    h1 {
+        font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
+        font-weight:400;
+        color: $font-color;
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .top2{     
+    background-color: white;
+    position: sticky;
+    top: 0;
+
+    }
+
+    .addMusicButton {
+    position: relative;
+    left: 130px;
+    background-color: white;
+    scale: 65%;
+    color: $font-color;
+    padding: 12px 24px;
+    border: none;
+    font-size: 18px;
+    font-weight:lighter;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 0 5px $light-blue;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+       
+        background-color: $button-back;
+        box-shadow: 0 0 5px color.scale($button-back, $lightness: 10%);
+        
+    }
+
+    }
+
+    .searchInput {
+        position: relative;
+        left: -110px;
+        background-color: #f1f1f1;;    
+        width: 35%;
+        height: 80%;
+        padding: 8px;
+        border: 1px solid #68b4f1;
+        border-radius: 5px;
+        font-size: 16px;
+        outline: none;
+        transition: all 0.3s ease-in-out;
+    }
+
+
+    .searchInput:focus {
+        border-color: #007bff;
+        box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.5);
+        background-color: color.scale(white, $lightness: 20%);
+    }
+
+
+    
+
+        
+
+
+    .loading {
+        font-size: 18px;
+        font-weight: bold;
+        color: #007bff;
+        margin-top: 20px;
+    }
+
+    table {
+        width: 100%;
+        max-width: 900px;
+        margin: auto;
+        border-collapse: collapse;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background: #007bff;
+            color: white;
+        }
+
+        td {
+            text-align: center;
+        }
+
+        img {
+            border-radius: 5px;
+        }
+
+        audio {
+            width: 120px;
+        }
+    }
+    .noData {
+        padding: 20px;
+        
+        font-size: 16px;
+        text-align: center;
+        font-weight: bold;
+    }
+
+
+
+    .clickable{
+        position: relative; // 부모 요소 기준
+        transition: 0.3s;
+    }
+
+    .clickable:hover{
+        cursor: pointer;
+        color: #007bff;
+    }
+
+
+    .deleteBtn {
+        
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    
+    .deleteBtn:hover {
+        background: rgb(255, 0, 0);
+    }
+
+}

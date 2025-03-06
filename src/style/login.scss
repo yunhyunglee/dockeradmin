@@ -1,0 +1,68 @@
+@use "sass:color";
+
+$light-blue: #64b5f6;  
+$medium-blue: #1976d2;  
+$deep-blue: #0a192f;    
+$neon-green: #64ffda;   
+
+.loginBack{
+    
+    background: linear-gradient(180deg, $light-blue, $medium-blue, $deep-blue);
+    width: 100dvw;
+    height: 100vh;
+    border: 1px solid red;
+    margin: 0 auto;
+    padding: 200px;
+}
+
+
+.loginContainer {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    height: 300px;
+    width: 500px;
+    
+    border-radius: 100px;
+    color: white;
+  
+    h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+  
+    input {
+        width: 300px;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: none;
+        border-radius: 5px;
+    }
+  
+    button {
+        background-color: #64ffda;
+        color: black;
+        padding: 12px 24px;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 5px;
+        box-shadow: 0 0 10px #64ffda;
+        transition: all 0.3s ease-in-out;
+      
+        &:hover {
+            background-color: #52e0c5;
+            box-shadow: 0 0 15px #52e0c5;
+        }
+    }
+    .errorMessage {
+        color: rgb(255, 8, 0);
+        font-size: 14px;
+        background-size:0ic;
+    }
+}
+  

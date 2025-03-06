@@ -1,0 +1,31 @@
+name: Deploy to EC2
+on:
+  push:
+    branches:
+      - main2
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: SSH로 EC2접속 -배포
+        uses: appleboy/ssh-action@master
+        env:
+          APPLICATION_PROPERTIES: ${{secrets.APPLICATION_YML}}
+        with:
+          host: ${{secrets.EC2_HOST}}
+          username: ${{secrets.EC2_USERNAME}}
+          key: ${{secrets.EC2_PRIVATE_KEY}}
+          envs: APPLICATION_PROPERTIES
+          script_stop: true
+          script: |
+            cd /home/ubuntu/Dive_Admin
+            git pull origin main
+            sudo npm run build
+            sudo systemctl restart nginx
+#            cd ../TeamDive_Admin/
+#            sudo npm run build
+#            sudo systemctl restart nginx
+
+
+

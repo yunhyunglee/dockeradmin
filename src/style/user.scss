@@ -1,0 +1,90 @@
+@use "sass:color";
+
+$user-blue: #64b5f6; 
+$user-dark-blue: #1976d2;
+$user-gray: #4e5968;
+$background-light: #f1f1f1;
+
+.userPage {
+
+    width: 700px;
+    height: 600px;
+    overflow-y: auto;
+    scrollbar-width: none;
+
+    .userContent {
+        margin-left: 40px;
+        padding: 20px;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 24px;
+        color: $user-gray;
+        margin-bottom: 20px;
+    }
+
+    .top2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+        gap: 10px;
+    }
+
+    .searchInput {
+        width: 250px;
+        padding: 8px;
+        border: 1px solid $user-blue;
+        border-radius: 5px;
+        font-size: 16px;
+        outline: none;
+        background-color: $background-light;
+        transition: all 0.3s ease-in-out;
+
+        &:focus {
+            border-color: $user-dark-blue;
+            box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.5);
+        }
+    }
+
+    .searchBtn {
+        padding: 10px 15px;
+        background-color: $user-blue;
+        border: none;
+        color: white;
+        font-size: 14px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+
+        &:hover {
+            background-color: $user-dark-blue;
+        }
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        margin-top: 20px;
+
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background: $user-dark-blue;
+            color: white;
+        }
+
+        .noData {
+            padding: 20px;
+            font-size: 16px;
+            text-align: center;
+            font-weight: bold;
+        }
+    }
+}

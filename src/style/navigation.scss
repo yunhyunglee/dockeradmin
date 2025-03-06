@@ -1,0 +1,56 @@
+@use "sass:color";
+
+// 색상 변수 설정
+$light-blue: #64b5f6;   
+$medium-blue: #1976d2;  
+$deep-blue: #0a192f;    
+$neon-green: #64ffda;   
+$button-back: #eeebeb;  
+$font-color: #4e5968;
+
+
+
+
+
+.navigationBar {
+    background-color: white;
+    border-bottom: $button-back solid 1px;
+    color: $font-color;
+    padding-right: 5px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    position: fixed;  // ✅ 상단에 고정
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 60px;
+    z-index: 1001;
+
+    p{
+        font-weight: lighter;
+        color: $font-color;
+        margin-right: 20px;
+        
+    }
+
+    button {  
+    margin-right: 25px;
+    background-color: white;
+    color: $font-color;
+    padding: 7px 7px;
+    border: none;
+    font-size: 15px;
+    font-weight:normal;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        
+        background-color: color.scale( $button-back, $lightness: 10%);
+    }
+   
+    }
+    
+}
