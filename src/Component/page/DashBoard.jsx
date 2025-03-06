@@ -1,6 +1,6 @@
 import jaxios from '../../util/JwtUtil';
 import { useState, useEffect } from "react";
-import { Card, CardContent } from "../../ui/card";
+import { Card, CardContent } from "../../ui/Card";
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend, AreaChart, Area, BarChart, Bar } from "recharts";
 import "../../style/dashboard.scss";
 
