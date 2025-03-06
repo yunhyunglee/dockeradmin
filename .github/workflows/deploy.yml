@@ -23,9 +23,7 @@ jobs:
             git pull origin main
             sudo npm run build
             sudo systemctl restart nginx
-#            cd ../TeamDive_Admin/
-#            sudo npm run build
-#            sudo systemctl restart nginx
+
 
 
 
