@@ -11,6 +11,7 @@ const Dashboard = () => {
   const [scale, setScale] = useState(1); 
   const [transitioning, setTransitioning] = useState(false); 
 
+  
   useEffect(() => {
     fetchStreamingData();
   }, []);
