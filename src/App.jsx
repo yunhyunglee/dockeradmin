@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { motion } from "framer-motion";
 import Dashboard from "./Component/page/DashBoard";
+import StreamingChart from "./Component/page/dashboard/StreamingChart";
 import SideBar from "./Component/SideBar";
 import NavigationBar from "./Component/NavigationBar";
 import User from "./Component/page/user/User";
@@ -22,7 +23,7 @@ import { useState } from "react";
 
 const App = () => {
     const isLoggedIn = useSelector((state)=> state.user.isLoggedIn); // Redux 상태 가져오기
-    const [SidebarOpen, setSidebarOpen] = useState(true)    
+    const [SidebarOpen, setSidebarOpen] = useState(true)
 
 
 
@@ -32,8 +33,8 @@ const App = () => {
                 {isLoggedIn && <SideBar SidebarOpen={SidebarOpen} />}
                 <div className={`mainContent ${isLoggedIn ? "loggedIn" : "loggedOut"}`}>
                     {isLoggedIn && <NavigationBar setSidebarOpen={setSidebarOpen} SidebarOpen ={SidebarOpen}/>}
-                    <Routes>                      
-                        <Route path="/" element={<Login />} />                     
+                    <Routes>
+                        <Route path="/" element={<Login />} />
                         {isLoggedIn ? (
                             <>
                                 <Route path="/dashboard" element={<Dashboard />} />
@@ -45,7 +46,7 @@ const App = () => {
                                 <Route path="/memberShip" element={<MemberShip />} />
                                 <Route path="/updateMemberShip/:membershipId" element={<UpdateMemberShip />} />
                                 <Route path="/addMemberShip" element={<AddMemberShip />}/>
-                                                                
+                                <Route path="/StreamingChart" element={<StreamingChart />} />
                                 <Route path="/musicController" element={<MusicController />}>
                                     <Route path="music" element={<Music />} />
                                     <Route path="artist" element={<Artist />} />
@@ -53,9 +54,9 @@ const App = () => {
                                 </Route>
 
                             </>
-                            ) : (
-                                <Route path="*" element={<Login />} />
-                            )}
+                        ) : (
+                            <Route path="*" element={<Login />} />
+                        )}
                     </Routes>
                 </div>
             </div>

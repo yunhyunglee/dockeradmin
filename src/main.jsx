@@ -7,6 +7,7 @@ import { persistUserState } from "./store/UserSlice";
 import { Provider } from "react-redux";
 
 
+
 persistUserState(store);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
