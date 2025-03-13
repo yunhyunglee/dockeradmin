@@ -6,10 +6,11 @@ export default defineConfig({
   plugins: [react()],
   base: '/admin/',
   server: {
+    host: '0.0.0.0',
     port: 5174,
     proxy: {
       '/api': {
-        target: 'http://localhost:8070', // API 서버 주소
+        target: 'http://3.34.52.91r:8070', // API 서버 주소
         changeOrigin: true,
         secure: false,
         rewrite: (path) => path.replace(/^\/api/, ''),

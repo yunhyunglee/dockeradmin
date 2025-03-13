@@ -1,29 +1,41 @@
-name: Deploy to EC2
+name: Deploy To EC2
 on:
   push:
     branches:
       - main
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: SSH로 EC2접속 -배포
+      - name: Github Repository 파일 불러오기
+        uses: actions/checkout@v4
+
+      - name: AWS Resource에 접근할 수 있게 AWS credentials 설정
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-region: ap-northeast-2
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+      - name: ECR에 로그인하기
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: docker 이미지 빌드
+        run: docker build -t dockerdiveadmin .
+      - name: 생성된 이미지에 tag설정
+        run: docker tag dockerdiveadmin:latest 842675991282.dkr.ecr.ap-northeast-2.amazonaws.com/dockerdiveadmin:latest
+      - name: docker ECR로 push
+        run: docker push 842675991282.dkr.ecr.ap-northeast-2.amazonaws.com/dockerdiveadmin:latest
+      - name: Ec2에 접속
         uses: appleboy/ssh-action@master
-        env:
-          APPLICATION_PROPERTIES: ${{secrets.APPLICATION_YML}}
         with:
           host: ${{secrets.EC2_HOST}}
           username: ${{secrets.EC2_USERNAME}}
           key: ${{secrets.EC2_PRIVATE_KEY}}
-          envs: APPLICATION_PROPERTIES
           script_stop: true
           script: |
-            cd /home/ubuntu/Dive_Admin
-            git pull origin main
-            sudo npm run build
-            sudo systemctl restart nginx
-
-
-
-
+            docker stop my-admin||true
+            docker rm my-admin||true
+            docker pull 842675991282.dkr.ecr.ap-northeast-2.amazonaws.com/dockerdiveadmin:latest
+            docker run -d --name my-admin -p 5173:5173 842675991282.dkr.ecr.ap-northeast-2.amazonaws.com/dockerdiveadmin:latest
