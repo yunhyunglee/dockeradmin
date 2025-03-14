@@ -67,7 +67,7 @@ const Music = () => {
     return (
         <div className={"musicPage"}>          
             <div className="musicContent">
-            <h1>음원 관리</h1>
+    
                 <div className='top2' >
                 <input type="text" className="searchInput" placeholder="음원 검색 (노래, 가수)" value={search} onChange={onSearch}/>
                 <button className="addMusicButton" onClick={() => navigate("/AddAlbum")}>앨범 추가</button>   

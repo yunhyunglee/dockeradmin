@@ -6,48 +6,63 @@ $deep-blue: #0a192f;
 $neon-green: #64ffda;   
 $button-back: #eeebeb;  
 $font-color: #4e5968;
+$background-light: #f1f1f1;
+
+.back-ground{
+    overflow-x: hidden;
+    height: 100vh;
+    width: 100vw;
+    background-color:$background-light ;
+}
 
 .music-layout {
-    position: fixed;
-    left: 40px;
-    margin-left: 60px;
+    
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60vw;
+    height: 600px;
+    min-width: 740px;
 
-    position: relative;
-    height: 80vh;
-    max-width: 600px;
-    z-index: 1000;
+
 
     .header {
-        
-        position: sticky;
-        top: 0;
-        left: 0; 
-        background-color: white;
+        position: relative;
+        left: -30%;
+        margin-left: auto;
+        margin-right: auto;
+        width:100vw;
         color: $font-color;
         border-bottom: 1px solid $font-color ;
         align-items: center;
         padding: 1rem 2rem;
 
         h2 {
-            font-size: 1.8rem;
+            font-size: 30px;
             font-weight: bold;
             color: $font-color;
             font-family: "Arial", sans-serif;
         }
 
         ul {
+            width: 65vw;
+            align-content: center;
+            text-align: center;
             display: flex;
             list-style: none;
-            margin: 0;
-            padding: 0;
+            padding: 0 auto;
+            margin: 0 auto;
 
             li {
-                margin-left: 20px;
+                
+                margin-left: auto;
+                margin-right: auto;
+                align-items: center;
 
                 a {
                     text-decoration: none;
                     color: $font-color;
-                    font-size: 1rem;
+                    font-size: 16px;
                     font-weight: 600;
                     padding: 0.5rem 1rem;
                     border-radius: 8px;
@@ -71,10 +86,11 @@ $font-color: #4e5968;
 
     // 📌 하단 콘텐츠 스타일
     .content {
-        position: relative;
-
+        margin-left: auto;
+        margin-right: auto;
+        min-width: 740px;
         margin-top: 5px;
-        width: 600px;
+        width: 65vw;
         display: flex;
         height: 100%;
         left: 0;

@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector  } from "react-redux"
-import { loginAction } from "../store/UserSlice.jsx";
+import { loginAction } from "../store/UserSlice";
 import "../style/login.scss";
 import axios from "axios";
 import { Cookies } from "react-cookie";

@@ -9,7 +9,7 @@ const Dashboard = () => {
 
 
   const handleChartClick = () => {
-    navigate("/StreamingChart");
+    navigate("/StreamingChart"); 
   };
 
 
@@ -18,17 +18,16 @@ const Dashboard = () => {
 
 
   return (
-      <div className="dashboard-container">
-        <div className="dashboard-content">
+    <div className="dashboard-container">
+      <div className="dashboard-content">
 
-          <h1 className="dashboard-title">📊 관리자 대시보드</h1>
+        <h1 className="dashboard-title">관리자 대시보드</h1>
 
-
-          <StreamingChart isSmall={true} onClick={handleChartClick} />
-
-
-        </div>
+          <StreamingChart/>
+          
+      
       </div>
+    </div>
   );
 };
 

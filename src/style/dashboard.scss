@@ -1,90 +1,57 @@
+@use "sass:color";
+
+$light-blue: #64b5f6;   
+$medium-blue: #1976d2;  
+$deep-blue: #0a192f;    
+$neon-green: #64ffda;   
+$button-back: #eeebeb;  
+$font-color: #4e5968;
+$background-light: #f1f1f1;
+
+
 .dashboard-container {
-    border: 1px solid red;
-    margin-left: 150px;
-    width: 85vw;
-    display: flex;
-    height: 85vh;
-    background-color: #f3f4f6; 
+  padding-left: 60px;
+  overflow-x: hidden;
+  width: 100vw;
+  height: 100vh;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  background-color:  $background-light;
+}
+
+.dashboard-content {
+  flex: 1;
+  padding: 24px;
+}
+
+.dashboard-title {
+  color: $font-color;
+  position: relative;
+  top: 30px;
+  left: 170px;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+/* ✅ 작은 차트 스타일 */
+
+.small-chart {
+  position: relative;
+  left: 20px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  max-height: 350px;
+  max-width: 940px;
+  width: 80vw;
+
+  border-radius: 5px;
+  cursor: pointer;
+  transition: border-color 0.3s;
+
+  &:hover {
+      border: 1px solid #007bff;       
   }
-  
-  .dashboard-content {
-    flex: 1;
-    padding: 24px;
-  }
-  
-  .dashboard-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 16px;
-  }
-  
-  .dashboard-controls, .chart-controls {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 16px;
-  
-    button {
-      padding: 8px 16px;
-      font-size: 14px;
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      cursor: pointer;
-      background: white;
-      transition: 0.3s;
-  
-      &:hover {
-        background: #e0e0e0;
-      }
-  
-      &.active {
-        background: #007bff;
-        color: white;
-        border-color: #007bff;
-      }
-    }
-  }
-  
-  .chart-card {
-    padding: 20px;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .chart-title {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 12px;
-  }
-  
-  .chart-line-primary {
-    stroke: #ff7300;
-    stroke-width: 3px;
-  }
-  
-  .chart-line-secondary {
-    stroke: #8884d8;
-    stroke-width: 4px;
-    opacity: 0.3;
-  }
-  
-  .fade-in {
-    opacity: 1;
-    transition: opacity 0.5s ease-in-out;
-  }
-  
-  .fade-out {
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-  }
-  
-  .zoom-in {
-    transform: scale(1);
-    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-  }
-  
-  .zoom-out {
-    transform: scale(0.7);
-    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-  }
-  
+}

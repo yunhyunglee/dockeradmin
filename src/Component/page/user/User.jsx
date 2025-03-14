@@ -50,6 +50,7 @@ const User = () => {
 
 
     return (
+        <div className="back-ground">
         <div className="userPage">
             <div className="userContent">
                 <h1>회원 관리</h1>
@@ -93,6 +94,7 @@ const User = () => {
                 </table>
             </div>
         </div>
+    </div>
     );
 };
 

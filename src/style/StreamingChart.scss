@@ -1,3 +1,4 @@
+// ✅ 전체 배경 스타일
 @use "sass:color";
 
 $light-blue: #64b5f6;   
@@ -6,102 +7,237 @@ $deep-blue: #0a192f;
 $neon-green: #64ffda;   
 $button-back: #eeebeb;  
 $font-color: #4e5968;
+$background-light: #f1f1f1;
 
 
+
+.background {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+// ✅ 차트 컨테이너 스타일
 .chart-container {
 
-    position: fixed;
-    left: 150px;
-    top: 110px;
-    width: 80vw;
-    height: 450px;
-    max-width: 1200px;
-    cursor: pointer;
-
-
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    max-width: 1000px;
+    height: 350px;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
 }
 
-.chart-controls {
-    margin-left: 70px;
-    justify-content: space-between;
-    align-items: center;
-    
-    .view-type-buttons {
+// ✅ 차트 내부 레이아웃
+.chart-wrapper {
+    width: 100%;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+// ✅ 일별/월별/연도별 버튼 스타일
+.view-type-buttons {
+    display: flex;
+    justify-content: center;
     gap: 10px;
+    margin-bottom: 16px;
 
     button {
-        padding: 8px 14px;
+        padding: 10px 20px;
         font-size: 14px;
+        border: none;
         border-radius: 6px;
         cursor: pointer;
-        background: #f8f9fa;
-        border: 1px solid #ddd;
-        transition: all 0.3s ease-in-out;
-
-        &:hover {
-        background: #e9ecef;
-        border-color: #007bff;
-        color: #007bff;
-        }
-
-        &.active {
-        background: #007bff;
-        color: white;
-        border-color: #007bff;
-        }
-    }
-    }
-}
-
-.pagination-controls {
-    margin-top: 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-
-    .pagination-btn {
-        padding: 8px 14px;
-        background: #fff;
-        border-radius: 6px;
-        border: 1px solid #ddd;
-        cursor: pointer;
-        transition: all 0.3s ease-in-out;
+        background: #f1f1f1;
+        transition: 0.3s ease-in-out;
 
         &:hover {
             background: #007bff;
             color: white;
-            border-color: #007bff;
+        }
+
+        &.active {
+            background: #007bff;
+            color: white;
+            font-weight: bold;
+        }
+    }
+}
+
+// ✅ 날짜 선택 & 네비게이션 버튼 컨트롤
+.pagination-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+
+    .pagination-btn {
+        padding: 8px 16px;
+        font-size: 14px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        cursor: pointer;
+        background: white;
+        transition: 0.3s ease-in-out;
+
+        &:hover {
+            background: #e0e0e0;
+        }
+    }
+}
+
+// ✅ 날짜 선택 버튼 스타일
+.chart-title-wrapper {
+    color: $font-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    transition: 0.3s ease-in-out;
+
+    &:hover {
+        color: #007bff;
+    }
+}
+
+// ✅ 날짜 선택기 스타일 (날짜 선택 시 애니메이션 적용)
+.datepicker-wrapper {
+    position: absolute;
+    top: 40px; /* ✅ 차트 아래에 적절한 간격 */
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    padding: 10px;
+}
+
+.react-datepicker {
+    font-family: "Arial", sans-serif;
+    border: none;
+}
+
+.react-datepicker__header {
+    background-color: #f3f4f6;
+    border-bottom: 1px solid #ddd;
+}
+
+.react-datepicker__month-container {
+    width: 270px;
+}
+
+.react-datepicker__current-month,
+.react-datepicker-time__header {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.react-datepicker__navigation {
+    display: none;
+    top: 10px; /* ✅ 좌우 화살표 위치 조정 */
+}
+
+/* ✅ 선택된 날짜 강조 */
+.react-datepicker__day--selected {
+    background-color: #007bff;
+    color: white;
+}
+
+/* ✅ hover 효과 */
+.react-datepicker__day:hover {
+    background-color: #e0e0e0;
+}
+
+/* ✅ 연/월 선택 스타일 */
+.react-datepicker__month {
+    display: flex;
+    flex-wrap: wrap;
+    grid-template-columns: repeat(3, 1fr); /* ✅ 3열 정렬 */
+
+}
+
+.react-datepicker__month-text {
+    text-align: center;
+    padding: 7px;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.react-datepicker__month-text:hover {
+    background-color: #f0f0f0;
+}
+
+
+
+
+
+
+// ✅ 차트 스타일
+.loading-text {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    color: #666;
+    margin-top: 20px;
+}
+
+// ✅ 애니메이션 효과
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// ✅ 반응형 스타일 (태블릿 & 모바일 대응)
+@media screen and (max-width: 768px) {
+    .chart-container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .view-type-buttons {
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
+    .pagination-controls {
+        flex-direction: column;
+        gap: 5px;
+
+        .pagination-btn {
+            width: 100%;
         }
     }
 
-    span {
+    .chart-title-wrapper {
         font-size: 16px;
-        font-weight: bold;
+    }
+
+    .datepicker-wrapper {
+        top: 40px;
+        left: 50%;
+        transform: translateX(-50%);
     }
 }
-
-.chart-wrapper {
-    align-items: flex-end;
-    width: 100%;
-    max-width: 900px;
-    background: white;
-    height: auto;
-    border-radius: 12px;
-    padding: 20px;
-}
-
-.chart-title {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 12px;
-    color: $font-color;
-  }
-  
-  .loading-text {
-    text-align: center;
-    font-size: 16px;
-    font-weight: bold;
-    color: #007bff;
-  }
-  

@@ -5,34 +5,56 @@ $user-dark-blue: #1976d2;
 $user-gray: #4e5968;
 $background-light: #f1f1f1;
 
-.userPage {
 
-    width: 700px;
+
+.back-ground {
+    overflow-x: hidden;
+    display: flex;
+    background-color: $background-light ;
+    width: 100vw;
+    height: 100vh;
+}
+
+
+
+.userPage {
+    margin-top: 70px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60vw;
+    min-width: 500px;
     height: 600px;
-    overflow-y: auto;
-    scrollbar-width: none;
+
 
     .userContent {
-        margin-left: 40px;
-        padding: 20px;
+
         text-align: center;
     }
 
     h1 {
-        font-size: 24px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-bottom: 50px;
+        position: relative;
+        left: -26%;
+        font-size: 30px;
         color: $user-gray;
-        margin-bottom: 20px;
+        
+        border-bottom: 1px solid $user-gray ;
+        width: 100vw;
     }
 
     .top2 {
+
         display: flex;
-        justify-content: center;
+        justify-content: start;
         align-items: center;
-        margin-bottom: 20px;
+        margin-bottom: 0;
         gap: 10px;
     }
 
     .searchInput {
+        
         width: 250px;
         padding: 8px;
         border: 1px solid $user-blue;
@@ -43,12 +65,14 @@ $background-light: #f1f1f1;
         transition: all 0.3s ease-in-out;
 
         &:focus {
+            background-color: white;
             border-color: $user-dark-blue;
             box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.5);
         }
     }
 
     .searchBtn {
+        
         padding: 10px 15px;
         background-color: $user-blue;
         border: none;
@@ -64,20 +88,37 @@ $background-light: #f1f1f1;
     }
 
     table {
+
+        background-color: white;
         width: 100%;
         border-collapse: collapse;
         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        margin-top: 20px;
+        cursor: pointer;
+
+        
+
+        
 
         th, td {
             padding: 12px;
             border-bottom: 1px solid #ddd;
             text-align: center;
+            margin-top: 10px;
+
+            
         }
 
         th {
             background: $user-dark-blue;
             color: white;
+
+            
+
+        }
+        td {
+            &:hover {
+                color: $user-dark-blue;     
+            }
         }
 
         .noData {

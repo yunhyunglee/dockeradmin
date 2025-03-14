@@ -1,7 +1,7 @@
 .custom-card {
   background: white;
   border-radius: 12px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+
   padding: 16px;
   transition: 0.3s ease-in-out;
   display: flex;
@@ -11,9 +11,7 @@
   border: none; /* ✅ 테두리 제거 */
   min-height: 100px;
 
-  &:hover {
-    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
-  }
+ 
 }
 
 .custom-card-content {
